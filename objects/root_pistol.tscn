@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://ybfbbbe0hnju"]
+
+[ext_resource type="PackedScene" uid="uid://b1rcqym3meofg" path="res://assets/opengameart.org/pistol/Model/Pistol.fbx" id="1_hpcfl"]
+[ext_resource type="Texture2D" uid="uid://bi354f417yxxt" path="res://assets/opengameart.org/pistol/Texture/PaletteAtlas.png" id="2_wk8t6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knp0u"]
+albedo_texture = ExtResource("2_wk8t6")
+
+[node name="Root Scene" instance=ExtResource("1_hpcfl")]
+
+[node name="Pistol" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="trigger" parent="RootNode/Pistol" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="Plane_002" parent="RootNode/Pistol" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="hammer" parent="RootNode/Pistol" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="magazine (loaded)" parent="RootNode/Pistol" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="9mm_001" parent="RootNode/Pistol/magazine (loaded)" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="9mm" parent="RootNode/Pistol/magazine (loaded)" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="magazine (empty)" parent="RootNode/Pistol" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="slide" parent="RootNode/Pistol" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
+
+[node name="night sights" parent="RootNode/Pistol/slide" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_knp0u")
