@@ -86,6 +86,7 @@ tracker = &"left_hand"
 strafe = true
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("4_a7adn")]
+grab_collision_mask = 328708
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.2)
@@ -98,6 +99,8 @@ turn_mode = 1
 step_turn_angle = 45.0
 
 [node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("4_a7adn")]
+grab_collision_mask = 328708
+ranged_collision_mask = 1028
 
 [node name="MovementJump" parent="XROrigin3D/RightController" instance=ExtResource("7_datg1")]
 jump_button_action = "ax_button"

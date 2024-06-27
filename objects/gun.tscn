@@ -1,24 +1,39 @@
-[gd_scene load_steps=23 format=3 uid="uid://x4wxv5768d3i"]
+[gd_scene load_steps=40 format=3 uid="uid://x4wxv5768d3i"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_asxj1"]
 [ext_resource type="Script" path="res://objects/gun.gd" id="2_g5if6"]
 [ext_resource type="PackedScene" uid="uid://ybfbbbe0hnju" path="res://objects/root_pistol.tscn" id="2_vgrw2"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_857mf"]
+[ext_resource type="PackedScene" uid="uid://cr5eoalwt4amg" path="res://objects/casing.tscn" id="3_skkga"]
+[ext_resource type="PackedScene" uid="uid://bqulxkfyeslft" path="res://objects/bullet.tscn" id="4_05ch4"]
+[ext_resource type="Texture2D" uid="uid://bi354f417yxxt" path="res://assets/opengameart.org/pistol/Texture/PaletteAtlas.png" id="4_bm11t"]
+[ext_resource type="ArrayMesh" uid="uid://dja582b0nskyo" path="res://objects/bullet.tres" id="4_kyqfg"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_o0uq4"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_wnr5j"]
+[ext_resource type="CylinderMesh" uid="uid://2bo12okag1o6" path="res://objects/empty_shell.tres" id="5_3x0bg"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_5jtxb"]
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="6_stuhb"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="7_5cr3y"]
 [ext_resource type="Material" uid="uid://celyku34atp4v" path="res://objects/highlight_material_3d.tres" id="8_0ayeu"]
 [ext_resource type="AudioStream" uid="uid://dskcdfkbbvixf" path="res://sounds/171614__pjkasinski3__mag-reload-1.mp3" id="11_5svhk"]
+[ext_resource type="AudioStream" uid="uid://o30sam2hlv82" path="res://sounds/739500__1234thekrebwgus__pistol-gun-shot.mp3" id="16_pgrm3"]
+[ext_resource type="AudioStream" uid="uid://ccuyejthrowq4" path="res://sounds/154934__klawykogut__empty-gun-shot.wav" id="17_72sd6"]
+[ext_resource type="ArrayMesh" uid="uid://pbh3s36pdfrm" path="res://assets/opengameart.org/muzzleflash.obj" id="18_835el"]
+[ext_resource type="Texture2D" uid="uid://ct81akb80xxki" path="res://assets/opengameart.org/muzzleflash.png" id="19_i5v0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdr3x"]
 size = Vector3(0.0275269, 0.152573, 0.21875)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7cio"]
+albedo_texture = ExtResource("4_bm11t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qf0us"]
+albedo_color = Color(1, 0.52549, 0.388235, 1)
+
 [sub_resource type="Resource" id="Resource_q3nmj"]
 script = ExtResource("5_5jtxb")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgpc1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mcr4"]
 resource_name = "M_PaletteAtlas"
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 metallic = 0.4
@@ -46,7 +61,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 1182,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 4, 0, 1, 0, 1, 0, 5, 0, 0, 0, 1, 0, 2, 0, 3, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 10, 0, 15, 0, 9, 0, 14, 0, 12, 0, 15, 0, 14, 0, 16, 0, 13, 0, 15, 0, 10, 0, 14, 0, 17, 0, 16, 0, 18, 0, 17, 0, 13, 0, 16, 0, 19, 0, 11, 0, 9, 0, 20, 0, 17, 0, 18, 0, 20, 0, 18, 0, 19, 0, 20, 0, 19, 0, 9, 0, 8, 0, 21, 0, 7, 0, 7, 0, 22, 0, 6, 0, 21, 0, 23, 0, 7, 0, 24, 0, 26, 0, 25, 0, 24, 0, 28, 0, 27, 0, 24, 0, 27, 0, 26, 0, 29, 0, 31, 0, 30, 0, 32, 0, 34, 0, 33, 0, 32, 0, 29, 0, 30, 0, 32, 0, 33, 0, 29, 0, 25, 0, 35, 0, 24, 0, 35, 0, 25, 0, 33, 0, 33, 0, 34, 0, 35, 0, 31, 0, 27, 0, 28, 0, 28, 0, 30, 0, 31, 0, 36, 0, 38, 0, 37, 0, 39, 0, 41, 0, 40, 0, 42, 0, 44, 0, 43, 0, 45, 0, 47, 0, 46, 0, 45, 0, 46, 0, 48, 0, 49, 0, 51, 0, 50, 0, 50, 0, 52, 0, 49, 0, 53, 0, 55, 0, 54, 0, 53, 0, 54, 0, 56, 0, 54, 0, 58, 0, 57, 0, 59, 0, 61, 0, 60, 0, 59, 0, 62, 0, 61, 0, 63, 0, 65, 0, 64, 0, 64, 0, 66, 0, 63, 0, 67, 0, 69, 0, 68, 0, 68, 0, 70, 0, 67, 0, 71, 0, 73, 0, 72, 0, 74, 0, 73, 0, 71, 0, 75, 0, 77, 0, 76, 0, 76, 0, 78, 0, 75, 0, 79, 0, 81, 0, 80, 0, 79, 0, 80, 0, 82, 0, 83, 0, 85, 0, 84, 0, 83, 0, 84, 0, 86, 0, 85, 0, 83, 0, 87, 0, 87, 0, 88, 0, 85, 0, 88, 0, 87, 0, 89, 0, 89, 0, 90, 0, 88, 0, 91, 0, 93, 0, 92, 0, 94, 0, 95, 0, 92, 0, 92, 0, 96, 0, 91, 0, 92, 0, 93, 0, 94, 0, 97, 0, 99, 0, 98, 0, 100, 0, 99, 0, 101, 0, 100, 0, 98, 0, 99, 0, 101, 0, 103, 0, 102, 0, 102, 0, 100, 0, 101, 0, 103, 0, 105, 0, 104, 0, 104, 0, 102, 0, 103, 0, 106, 0, 108, 0, 107, 0, 109, 0, 111, 0, 110, 0, 108, 0, 113, 0, 112, 0, 108, 0, 106, 0, 110, 0, 112, 0, 113, 0, 114, 0, 115, 0, 117, 0, 116, 0, 107, 0, 112, 0, 115, 0, 107, 0, 108, 0, 112, 0, 117, 0, 115, 0, 112, 0, 118, 0, 119, 0, 104, 0, 118, 0, 104, 0, 105, 0, 116, 0, 117, 0, 119, 0, 116, 0, 119, 0, 118, 0, 120, 0, 122, 0, 121, 0, 121, 0, 123, 0, 120, 0, 124, 0, 126, 0, 125, 0, 124, 0, 125, 0, 127, 0, 128, 0, 130, 0, 129, 0, 131, 0, 133, 0, 132, 0, 131, 0, 134, 0, 133, 0, 135, 0, 137, 0, 136, 0, 136, 0, 138, 0, 135, 0, 139, 0, 141, 0, 140, 0, 140, 0, 142, 0, 139, 0, 143, 0, 145, 0, 144, 0, 143, 0, 147, 0, 146, 0, 146, 0, 145, 0, 143, 0, 148, 0, 150, 0, 149, 0, 150, 0, 148, 0, 151, 0, 152, 0, 154, 0, 153, 0, 155, 0, 157, 0, 156, 0, 158, 0, 160, 0, 159, 0, 160, 0, 158, 0, 161, 0, 159, 0, 163, 0, 162, 0, 159, 0, 160, 0, 163, 0, 163, 0, 165, 0, 164, 0, 164, 0, 162, 0, 163, 0, 165, 0, 167, 0, 166, 0, 166, 0, 164, 0, 165, 0, 168, 0, 170, 0, 169, 0, 171, 0, 173, 0, 172, 0, 172, 0, 174, 0, 171, 0, 173, 0, 175, 0, 172, 0, 176, 0, 178, 0, 177, 0, 177, 0, 179, 0, 176, 0, 180, 0, 182, 0, 181, 0, 183, 0, 185, 0, 184, 0, 98, 0, 186, 0, 97, 0, 110, 0, 106, 0, 109, 0, 186, 0, 98, 0, 110, 0, 186, 0, 110, 0, 111, 0, 187, 0, 189, 0, 188, 0, 190, 0, 192, 0, 191, 0, 193, 0, 195, 0, 194, 0, 193, 0, 196, 0, 195, 0, 193, 0, 152, 0, 197, 0, 193, 0, 154, 0, 152, 0, 193, 0, 197, 0, 196, 0, 198, 0, 200, 0, 199, 0, 201, 0, 202, 0, 200, 0, 200, 0, 198, 0, 201, 0, 184, 0, 203, 0, 183, 0, 204, 0, 184, 0, 185, 0, 185, 0, 205, 0, 204, 0, 206, 0, 208, 0, 207, 0, 209, 0, 211, 0, 210, 0, 48, 0, 46, 0, 126, 0, 212, 0, 214, 0, 213, 0, 215, 0, 216, 0, 188, 0, 188, 0, 217, 0, 215, 0, 188, 0, 216, 0, 187, 0, 218, 0, 220, 0, 219, 0, 221, 0, 222, 0, 220, 0, 223, 0, 225, 0, 224, 0, 129, 0, 226, 0, 128, 0, 227, 0, 226, 0, 129, 0, 154, 0, 193, 0, 228, 0, 228, 0, 230, 0, 229, 0, 229, 0, 154, 0, 228, 0, 231, 0, 233, 0, 232, 0, 43, 0, 234, 0, 42, 0, 213, 0, 235, 0, 212, 0, 235, 0, 213, 0, 236, 0, 237, 0, 223, 0, 224, 0, 237, 0, 224, 0, 238, 0, 238, 0, 239, 0, 237, 0, 199, 0, 240, 0, 198, 0, 210, 0, 241, 0, 209, 0, 240, 0, 199, 0, 241, 0, 241, 0, 210, 0, 240, 0, 233, 0, 231, 0, 43, 0, 233, 0, 43, 0, 44, 0, 191, 0, 242, 0, 190, 0, 236, 0, 243, 0, 235, 0, 242, 0, 191, 0, 243, 0, 243, 0, 236, 0, 242, 0, 144, 0, 145, 0, 244, 0, 245, 0, 144, 0, 246, 0, 247, 0, 244, 0, 248, 0, 246, 0, 144, 0, 244, 0, 246, 0, 244, 0, 247, 0, 249, 0, 251, 0, 250, 0, 252, 0, 254, 0, 253, 0, 253, 0, 249, 0, 252, 0, 250, 0, 252, 0, 249, 0, 251, 0, 0, 1, 255, 0, 255, 0, 250, 0, 251, 0, 0, 1, 2, 1, 1, 1, 1, 1, 4, 1, 3, 1, 1, 1, 255, 0, 0, 1, 4, 1, 6, 1, 5, 1, 4, 1, 1, 1, 2, 1, 5, 1, 6, 1, 7, 1, 5, 1, 3, 1, 4, 1, 7, 1, 8, 1, 5, 1, 7, 1, 10, 1, 9, 1, 9, 1, 8, 1, 7, 1, 10, 1, 12, 1, 11, 1, 11, 1, 9, 1, 10, 1, 11, 1, 12, 1, 181, 0, 181, 0, 13, 1, 180, 0, 181, 0, 182, 0, 11, 1, 14, 1, 16, 1, 15, 1, 17, 1, 14, 1, 15, 1, 157, 0, 18, 1, 169, 0, 19, 1, 21, 1, 20, 1, 22, 1, 19, 1, 20, 1, 232, 0, 226, 0, 227, 0, 232, 0, 227, 0, 231, 0, 232, 0, 24, 1, 23, 1, 25, 1, 27, 1, 26, 1, 26, 1, 28, 1, 25, 1, 29, 1, 31, 1, 30, 1, 30, 1, 32, 1, 29, 1, 24, 1, 33, 1, 23, 1, 24, 1, 35, 1, 34, 1, 58, 0, 37, 1, 36, 1, 57, 0, 56, 0, 54, 0, 57, 0, 58, 0, 36, 1, 55, 0, 53, 0, 38, 1, 55, 0, 38, 1, 39, 1, 40, 1, 37, 1, 39, 1, 37, 1, 40, 1, 36, 1, 37, 1, 55, 0, 39, 1, 41, 1, 43, 1, 42, 1, 44, 1, 41, 1, 42, 1, 45, 1, 47, 1, 46, 1, 46, 1, 48, 1, 45, 1, 49, 1, 51, 1, 50, 1, 50, 1, 52, 1, 49, 1, 53, 1, 55, 1, 54, 1, 56, 1, 54, 1, 55, 1, 57, 1, 59, 1, 58, 1, 58, 1, 60, 1, 57, 1, 61, 1, 63, 1, 62, 1, 64, 1, 61, 1, 62, 1, 65, 1, 67, 1, 66, 1, 68, 1, 65, 1, 66, 1, 69, 1, 65, 1, 68, 1, 70, 1, 69, 1, 71, 1, 71, 1, 69, 1, 68, 1, 72, 1, 70, 1, 71, 1, 73, 1, 75, 1, 74, 1, 74, 1, 76, 1, 73, 1, 74, 1, 78, 1, 77, 1, 76, 1, 74, 1, 77, 1, 79, 1, 81, 1, 80, 1, 82, 1, 84, 1, 83, 1, 82, 1, 85, 1, 84, 1, 85, 1, 82, 1, 86, 1, 87, 1, 89, 1, 88, 1, 86, 1, 90, 1, 85, 1, 89, 1, 91, 1, 88, 1, 89, 1, 87, 1, 90, 1, 90, 1, 86, 1, 89, 1, 92, 1, 94, 1, 93, 1, 95, 1, 96, 1, 80, 1, 97, 1, 99, 1, 98, 1, 97, 1, 100, 1, 96, 1, 80, 1, 94, 1, 95, 1, 80, 1, 100, 1, 79, 1, 100, 1, 80, 1, 96, 1, 100, 1, 97, 1, 98, 1, 91, 1, 98, 1, 99, 1, 88, 1, 91, 1, 99, 1, 101, 1, 103, 1, 102, 1, 102, 1, 104, 1, 101, 1, 105, 1, 107, 1, 106, 1, 105, 1, 106, 1, 108, 1, 109, 1, 23, 1, 110, 1, 111, 1, 113, 1, 112, 1, 112, 1, 114, 1, 111, 1, 115, 1, 117, 1, 116, 1, 118, 1, 115, 1, 116, 1, 119, 1, 121, 1, 120, 1, 122, 1, 124, 1, 123, 1, 125, 1, 127, 1, 126, 1, 126, 1, 128, 1, 125, 1, 129, 1, 131, 1, 130, 1, 130, 1, 132, 1, 129, 1, 133, 1, 135, 1, 134, 1, 136, 1, 137, 1, 133, 1, 136, 1, 133, 1, 134, 1, 138, 1, 140, 1, 139, 1, 141, 1, 139, 1, 140, 1, 142, 1, 144, 1, 143, 1, 145, 1, 144, 1, 142, 1, 146, 1, 147, 1, 156, 0, 148, 1, 150, 1, 149, 1, 150, 1, 148, 1, 151, 1, 150, 1, 152, 1, 149, 1, 153, 1, 151, 1, 148, 1, 151, 1, 153, 1, 154, 1, 154, 1, 155, 1, 151, 1, 156, 1, 157, 1, 155, 1, 155, 1, 154, 1, 156, 1, 170, 0, 159, 1, 158, 1, 160, 1, 162, 1, 161, 1, 161, 1, 163, 1, 160, 1, 162, 1, 164, 1, 161, 1, 219, 0, 220, 0, 165, 1, 219, 0, 166, 1, 218, 0, 219, 0, 165, 1, 167, 1, 168, 1, 170, 1, 169, 1, 169, 1, 171, 1, 168, 1, 172, 1, 174, 1, 173, 1, 175, 1, 177, 1, 176, 1, 37, 0, 178, 1, 36, 0, 37, 0, 180, 1, 179, 1, 83, 1, 182, 1, 181, 1, 83, 1, 84, 1, 182, 1, 94, 1, 92, 1, 95, 1, 94, 1, 83, 1, 181, 1, 93, 1, 94, 1, 181, 1, 144, 1, 184, 1, 183, 1, 144, 1, 185, 1, 143, 1, 144, 1, 186, 1, 185, 1, 41, 0, 124, 1, 40, 0, 123, 1, 41, 0, 187, 1, 124, 1, 41, 0, 123, 1, 188, 1, 190, 1, 189, 1, 191, 1, 193, 1, 192, 1, 179, 1, 178, 1, 37, 0, 179, 1, 180, 1, 194, 1, 207, 0, 196, 1, 195, 1, 207, 0, 197, 1, 206, 0, 195, 1, 197, 1, 207, 0, 198, 1, 200, 1, 199, 1, 198, 1, 202, 1, 201, 1, 201, 1, 200, 1, 198, 1, 125, 0, 203, 1, 127, 0, 126, 0, 46, 0, 125, 0, 194, 1, 204, 1, 179, 1, 205, 1, 206, 1, 204, 1, 204, 1, 194, 1, 205, 1, 220, 0, 222, 0, 207, 1, 220, 0, 218, 0, 221, 0, 220, 0, 207, 1, 165, 1, 110, 1, 208, 1, 109, 1, 23, 1, 226, 0, 232, 0, 33, 1, 110, 1, 23, 1, 209, 1, 211, 1, 210, 1, 184, 1, 145, 1, 212, 1, 184, 1, 144, 1, 145, 1, 183, 1, 184, 1, 213, 1, 213, 1, 214, 1, 183, 1, 187, 1, 121, 1, 123, 1, 187, 1, 216, 1, 215, 1, 121, 1, 187, 1, 215, 1, 120, 1, 121, 1, 215, 1, 217, 1, 219, 1, 218, 1, 220, 1, 221, 1, 173, 1, 173, 1, 222, 1, 220, 1, 173, 1, 221, 1, 172, 1, 210, 1, 223, 1, 209, 1, 189, 1, 191, 1, 188, 1, 190, 1, 210, 1, 211, 1, 211, 1, 189, 1, 190, 1, 34, 1, 33, 1, 24, 1, 44, 0, 35, 1, 233, 0, 44, 0, 34, 1, 35, 1, 218, 1, 224, 1, 217, 1, 199, 1, 225, 1, 198, 1, 224, 1, 218, 1, 225, 1, 225, 1, 199, 1, 224, 1, 192, 1, 188, 1, 191, 1, 192, 1, 193, 1, 226, 1, 227, 1, 192, 1, 226, 1, 228, 1, 229, 1, 135, 1, 230, 1, 232, 1, 231, 1, 231, 1, 134, 1, 135, 1, 231, 1, 135, 1, 229, 1, 229, 1, 230, 1, 231, 1, 233, 1, 235, 1, 234, 1, 235, 1, 233, 1, 236, 1, 236, 1, 237, 1, 235, 1, 234, 1, 238, 1, 233, 1, 238, 1, 234, 1, 239, 1, 239, 1, 240, 1, 238, 1, 240, 1, 239, 1, 241, 1, 241, 1, 242, 1, 240, 1, 243, 1, 244, 1, 241, 1, 244, 1, 243, 1, 245, 1, 244, 1, 242, 1, 241, 1, 246, 1, 245, 1, 247, 1, 245, 1, 246, 1, 244, 1, 248, 1, 247, 1, 245, 1, 247, 1, 248, 1, 249, 1, 249, 1, 250, 1, 247, 1, 250, 1, 249, 1, 251, 1, 251, 1, 252, 1, 250, 1, 176, 1, 253, 1, 175, 1, 176, 1, 252, 1, 251, 1, 176, 1, 251, 1, 253, 1, 254, 1, 0, 2, 255, 1, 0, 2, 254, 1, 1, 2, 169, 0, 18, 1, 168, 0, 169, 0, 156, 0, 157, 0, 156, 0, 147, 1, 155, 0, 156, 0, 169, 0, 158, 1, 156, 0, 2, 2, 146, 1, 158, 1, 169, 0, 170, 0, 2, 2, 156, 0, 158, 1),
-"material": SubResource("StandardMaterial3D_pgpc1"),
+"material": SubResource("StandardMaterial3D_4mcr4"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -78,7 +93,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 1137,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 6, 0, 5, 0, 5, 0, 7, 0, 4, 0, 8, 0, 10, 0, 9, 0, 11, 0, 8, 0, 9, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0, 15, 0, 16, 0, 18, 0, 19, 0, 21, 0, 20, 0, 19, 0, 20, 0, 22, 0, 23, 0, 22, 0, 24, 0, 23, 0, 19, 0, 22, 0, 25, 0, 27, 0, 26, 0, 28, 0, 23, 0, 24, 0, 24, 0, 25, 0, 29, 0, 29, 0, 28, 0, 24, 0, 26, 0, 27, 0, 30, 0, 26, 0, 29, 0, 25, 0, 21, 0, 26, 0, 30, 0, 21, 0, 30, 0, 20, 0, 31, 0, 33, 0, 32, 0, 32, 0, 34, 0, 31, 0, 32, 0, 35, 0, 34, 0, 32, 0, 36, 0, 35, 0, 37, 0, 39, 0, 38, 0, 38, 0, 40, 0, 37, 0, 41, 0, 43, 0, 42, 0, 44, 0, 46, 0, 45, 0, 45, 0, 47, 0, 44, 0, 48, 0, 50, 0, 49, 0, 48, 0, 49, 0, 51, 0, 52, 0, 54, 0, 53, 0, 52, 0, 53, 0, 55, 0, 56, 0, 58, 0, 57, 0, 59, 0, 61, 0, 60, 0, 60, 0, 62, 0, 59, 0, 63, 0, 65, 0, 64, 0, 66, 0, 68, 0, 67, 0, 69, 0, 71, 0, 70, 0, 72, 0, 69, 0, 70, 0, 73, 0, 75, 0, 74, 0, 75, 0, 73, 0, 76, 0, 77, 0, 79, 0, 78, 0, 78, 0, 80, 0, 77, 0, 81, 0, 83, 0, 82, 0, 84, 0, 86, 0, 85, 0, 87, 0, 89, 0, 88, 0, 90, 0, 92, 0, 91, 0, 93, 0, 95, 0, 94, 0, 93, 0, 94, 0, 96, 0, 97, 0, 99, 0, 98, 0, 97, 0, 100, 0, 99, 0, 101, 0, 103, 0, 102, 0, 104, 0, 106, 0, 105, 0, 104, 0, 105, 0, 107, 0, 108, 0, 110, 0, 109, 0, 111, 0, 108, 0, 112, 0, 111, 0, 112, 0, 113, 0, 109, 0, 112, 0, 108, 0, 110, 0, 115, 0, 114, 0, 110, 0, 114, 0, 109, 0, 102, 0, 117, 0, 116, 0, 102, 0, 116, 0, 101, 0, 100, 0, 118, 0, 99, 0, 119, 0, 121, 0, 120, 0, 122, 0, 119, 0, 123, 0, 122, 0, 123, 0, 124, 0, 124, 0, 125, 0, 122, 0, 126, 0, 128, 0, 127, 0, 129, 0, 131, 0, 130, 0, 129, 0, 130, 0, 132, 0, 133, 0, 131, 0, 120, 0, 133, 0, 130, 0, 131, 0, 120, 0, 123, 0, 119, 0, 120, 0, 121, 0, 133, 0, 134, 0, 136, 0, 135, 0, 137, 0, 139, 0, 138, 0, 140, 0, 137, 0, 138, 0, 125, 0, 142, 0, 141, 0, 143, 0, 145, 0, 144, 0, 146, 0, 145, 0, 143, 0, 147, 0, 145, 0, 146, 0, 142, 0, 145, 0, 147, 0, 148, 0, 150, 0, 149, 0, 151, 0, 148, 0, 149, 0, 152, 0, 154, 0, 153, 0, 155, 0, 154, 0, 152, 0, 156, 0, 158, 0, 157, 0, 156, 0, 159, 0, 158, 0, 160, 0, 159, 0, 161, 0, 161, 0, 159, 0, 156, 0, 161, 0, 162, 0, 160, 0, 157, 0, 158, 0, 163, 0, 164, 0, 166, 0, 165, 0, 165, 0, 167, 0, 164, 0, 9, 0, 169, 0, 168, 0, 9, 0, 10, 0, 170, 0, 170, 0, 169, 0, 9, 0, 171, 0, 172, 0, 13, 0, 13, 0, 173, 0, 171, 0, 13, 0, 174, 0, 12, 0, 174, 0, 13, 0, 172, 0, 175, 0, 177, 0, 176, 0, 176, 0, 178, 0, 175, 0, 179, 0, 181, 0, 180, 0, 180, 0, 182, 0, 179, 0, 183, 0, 185, 0, 184, 0, 184, 0, 186, 0, 183, 0, 187, 0, 189, 0, 188, 0, 188, 0, 190, 0, 187, 0, 191, 0, 193, 0, 192, 0, 194, 0, 191, 0, 192, 0, 195, 0, 197, 0, 196, 0, 198, 0, 195, 0, 196, 0, 199, 0, 201, 0, 200, 0, 202, 0, 199, 0, 200, 0, 203, 0, 205, 0, 204, 0, 206, 0, 203, 0, 204, 0, 207, 0, 209, 0, 208, 0, 208, 0, 210, 0, 207, 0, 211, 0, 213, 0, 212, 0, 214, 0, 216, 0, 215, 0, 217, 0, 219, 0, 218, 0, 220, 0, 222, 0, 221, 0, 223, 0, 225, 0, 224, 0, 226, 0, 228, 0, 227, 0, 229, 0, 227, 0, 228, 0, 230, 0, 232, 0, 231, 0, 233, 0, 231, 0, 232, 0, 234, 0, 236, 0, 235, 0, 237, 0, 235, 0, 236, 0, 238, 0, 240, 0, 239, 0, 241, 0, 239, 0, 240, 0, 242, 0, 244, 0, 243, 0, 242, 0, 245, 0, 244, 0, 242, 0, 246, 0, 245, 0, 242, 0, 248, 0, 247, 0, 242, 0, 247, 0, 246, 0, 249, 0, 250, 0, 225, 0, 222, 0, 250, 0, 249, 0, 222, 0, 220, 0, 251, 0, 251, 0, 250, 0, 222, 0, 219, 0, 250, 0, 251, 0, 219, 0, 217, 0, 252, 0, 252, 0, 250, 0, 219, 0, 216, 0, 250, 0, 252, 0, 216, 0, 214, 0, 253, 0, 254, 0, 0, 1, 255, 0, 0, 1, 254, 0, 1, 1, 2, 1, 4, 1, 3, 1, 3, 1, 5, 1, 2, 1, 243, 0, 6, 1, 242, 0, 243, 0, 8, 1, 7, 1, 8, 1, 243, 0, 9, 1, 10, 1, 12, 1, 11, 1, 11, 1, 13, 1, 10, 1, 245, 0, 14, 1, 244, 0, 14, 1, 245, 0, 15, 1, 16, 1, 18, 1, 17, 1, 18, 1, 19, 1, 17, 1, 247, 0, 20, 1, 246, 0, 20, 1, 247, 0, 21, 1, 22, 1, 24, 1, 23, 1, 23, 1, 25, 1, 22, 1, 26, 1, 28, 1, 27, 1, 27, 1, 29, 1, 26, 1, 212, 0, 30, 1, 211, 0, 225, 0, 223, 0, 249, 0, 30, 1, 225, 0, 250, 0, 30, 1, 212, 0, 225, 0, 31, 1, 33, 1, 32, 1, 32, 1, 34, 1, 31, 1, 6, 1, 243, 0, 7, 1, 6, 1, 36, 1, 35, 1, 6, 1, 255, 0, 36, 1, 6, 1, 254, 0, 255, 0, 6, 1, 7, 1, 254, 0, 36, 1, 37, 1, 35, 1, 37, 1, 36, 1, 38, 1, 136, 0, 134, 0, 39, 1, 135, 0, 136, 0, 40, 1, 41, 1, 43, 1, 42, 1, 42, 1, 44, 1, 41, 1, 45, 1, 47, 1, 46, 1, 46, 1, 48, 1, 45, 1, 49, 1, 51, 1, 50, 1, 50, 1, 52, 1, 49, 1, 53, 1, 55, 1, 54, 1, 54, 1, 56, 1, 53, 1, 57, 1, 59, 1, 58, 1, 59, 1, 57, 1, 60, 1, 61, 1, 63, 1, 62, 1, 63, 1, 61, 1, 64, 1, 65, 1, 67, 1, 66, 1, 67, 1, 65, 1, 68, 1, 69, 1, 71, 1, 70, 1, 71, 1, 69, 1, 72, 1, 73, 1, 75, 1, 74, 1, 74, 1, 76, 1, 73, 1, 77, 1, 79, 1, 78, 1, 80, 1, 82, 1, 81, 1, 83, 1, 85, 1, 84, 1, 86, 1, 88, 1, 87, 1, 89, 1, 91, 1, 90, 1, 92, 1, 94, 1, 93, 1, 95, 1, 97, 1, 96, 1, 97, 1, 95, 1, 98, 1, 99, 1, 101, 1, 100, 1, 101, 1, 99, 1, 102, 1, 103, 1, 105, 1, 104, 1, 105, 1, 103, 1, 106, 1, 107, 1, 109, 1, 108, 1, 109, 1, 107, 1, 110, 1, 111, 1, 89, 1, 90, 1, 111, 1, 90, 1, 112, 1, 87, 1, 111, 1, 112, 1, 113, 1, 87, 1, 112, 1, 113, 1, 86, 1, 87, 1, 84, 1, 113, 1, 112, 1, 114, 1, 83, 1, 84, 1, 114, 1, 84, 1, 112, 1, 81, 1, 114, 1, 112, 1, 115, 1, 80, 1, 81, 1, 115, 1, 81, 1, 112, 1, 115, 1, 112, 1, 94, 1, 116, 1, 118, 1, 117, 1, 116, 1, 117, 1, 119, 1, 120, 1, 116, 1, 119, 1, 121, 1, 123, 1, 122, 1, 122, 1, 124, 1, 121, 1, 125, 1, 118, 1, 116, 1, 126, 1, 118, 1, 125, 1, 126, 1, 128, 1, 127, 1, 126, 1, 125, 1, 129, 1, 130, 1, 126, 1, 129, 1, 131, 1, 133, 1, 132, 1, 132, 1, 134, 1, 131, 1, 135, 1, 137, 1, 136, 1, 138, 1, 140, 1, 139, 1, 138, 1, 139, 1, 141, 1, 142, 1, 127, 1, 143, 1, 142, 1, 143, 1, 144, 1, 145, 1, 142, 1, 144, 1, 146, 1, 148, 1, 147, 1, 147, 1, 149, 1, 146, 1, 150, 1, 152, 1, 151, 1, 151, 1, 153, 1, 150, 1, 78, 1, 154, 1, 77, 1, 90, 1, 78, 1, 79, 1, 117, 1, 118, 1, 155, 1, 112, 1, 90, 1, 79, 1, 112, 1, 79, 1, 156, 1, 156, 1, 250, 0, 93, 1, 93, 1, 112, 1, 156, 1, 93, 1, 157, 1, 92, 1, 158, 1, 160, 1, 159, 1, 161, 1, 159, 1, 160, 1, 118, 1, 162, 1, 155, 1, 155, 1, 162, 1, 163, 1, 164, 1, 155, 1, 163, 1, 165, 1, 135, 0, 40, 1, 139, 0, 166, 1, 138, 0, 139, 0, 165, 1, 166, 1, 139, 0, 135, 0, 165, 1, 167, 1, 169, 1, 168, 1, 94, 1, 168, 1, 115, 1, 94, 1, 167, 1, 168, 1, 94, 1, 112, 1, 93, 1, 250, 0, 253, 0, 157, 1, 250, 0, 156, 1, 30, 1, 253, 0, 170, 1, 157, 1, 253, 0, 250, 0, 216, 0, 127, 1, 118, 1, 126, 1, 127, 1, 172, 1, 171, 1, 137, 1, 127, 1, 128, 1, 137, 1, 128, 1, 136, 1, 143, 1, 127, 1, 137, 1, 173, 1, 175, 1, 174, 1, 157, 1, 93, 1, 250, 0, 170, 1, 177, 1, 176, 1, 172, 1, 127, 1, 142, 1, 178, 1, 180, 1, 179, 1, 181, 1, 180, 1, 178, 1, 182, 1, 183, 1, 163, 0, 163, 0, 158, 0, 182, 1, 184, 1, 186, 1, 185, 1, 187, 1, 184, 1, 185, 1, 188, 1, 189, 1, 185, 1, 185, 1, 189, 1, 187, 1, 185, 1, 191, 1, 190, 1, 185, 1, 192, 1, 188, 1, 186, 1, 191, 1, 185, 1, 193, 1, 195, 1, 194, 1, 195, 1, 197, 1, 196, 1, 195, 1, 198, 1, 197, 1, 196, 1, 194, 1, 195, 1, 176, 1, 199, 1, 170, 1, 199, 1, 201, 1, 200, 1, 199, 1, 157, 1, 170, 1, 202, 1, 204, 1, 203, 1, 202, 1, 206, 1, 205, 1, 207, 1, 209, 1, 208, 1, 210, 1, 212, 1, 211, 1, 213, 1, 215, 1, 214, 1, 214, 1, 217, 1, 216, 1, 214, 1, 215, 1, 218, 1, 216, 1, 213, 1, 214, 1, 219, 1, 220, 1, 248, 0, 219, 1, 222, 1, 221, 1, 219, 1, 242, 0, 127, 1, 219, 1, 248, 0, 242, 0, 221, 1, 220, 1, 219, 1, 221, 1, 224, 1, 223, 1, 224, 1, 221, 1, 222, 1, 225, 1, 223, 1, 224, 1, 201, 1, 199, 1, 176, 1, 226, 1, 200, 1, 201, 1, 200, 1, 226, 1, 227, 1, 205, 1, 204, 1, 202, 1, 206, 1, 229, 1, 228, 1, 228, 1, 205, 1, 206, 1, 145, 0, 142, 0, 125, 0, 145, 0, 125, 0, 124, 0, 132, 0, 145, 0, 129, 0, 144, 0, 132, 0, 230, 1, 144, 0, 145, 0, 132, 0, 227, 1, 231, 1, 200, 1, 231, 1, 227, 1, 232, 1, 233, 1, 235, 1, 234, 1, 236, 1, 237, 1, 209, 1, 209, 1, 238, 1, 236, 1, 209, 1, 237, 1, 208, 1, 175, 1, 240, 1, 239, 1, 175, 1, 173, 1, 240, 1, 174, 1, 242, 1, 241, 1, 243, 1, 245, 1, 244, 1, 244, 1, 246, 1, 243, 1, 247, 1, 210, 1, 211, 1, 211, 1, 244, 1, 245, 1, 245, 1, 247, 1, 211, 1, 248, 1, 250, 1, 249, 1, 249, 1, 251, 1, 248, 1, 171, 1, 219, 1, 127, 1, 171, 1, 172, 1, 252, 1, 253, 1, 171, 1, 254, 1, 254, 1, 171, 1, 252, 1, 255, 1, 253, 1, 254, 1, 0, 2, 1, 2, 255, 1, 1, 2, 253, 1, 255, 1, 1, 2, 0, 2, 2, 2, 3, 2, 5, 2, 4, 2, 242, 1, 174, 1, 175, 1, 6, 2, 7, 2, 241, 1, 241, 1, 242, 1, 6, 2, 7, 2, 8, 2, 241, 1, 9, 2, 3, 2, 4, 2, 4, 2, 10, 2, 232, 1, 232, 1, 9, 2, 4, 2, 232, 1, 10, 2, 231, 1, 234, 1, 12, 2, 11, 2, 235, 1, 12, 2, 234, 1, 13, 2, 15, 2, 14, 2, 14, 2, 16, 2, 13, 2, 17, 2, 19, 2, 18, 2, 17, 2, 21, 2, 20, 2, 18, 2, 19, 2, 22, 2, 21, 2, 17, 2, 18, 2, 23, 2, 20, 2, 24, 2, 24, 2, 26, 2, 25, 2, 20, 2, 23, 2, 17, 2, 26, 2, 24, 2, 20, 2, 25, 2, 27, 2, 24, 2, 28, 2, 22, 2, 19, 2, 27, 2, 25, 2, 22, 2, 22, 2, 28, 2, 27, 2, 128, 0, 29, 2, 127, 0, 127, 0, 30, 2, 126, 0, 29, 2, 31, 2, 127, 0),
-"material": SubResource("StandardMaterial3D_pgpc1"),
+"material": SubResource("StandardMaterial3D_4mcr4"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -142,45 +157,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_xd77h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root Scene/RootNode/Pistol/MagazineSnapZone:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.24594e-09, 0.0704987, 0.0175055)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Root Scene/RootNode/Pistol/MagazineSnapZone:enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MagReload:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_jmq3q"]
 resource_name = "LoadMagazine"
 length = 0.5
@@ -235,15 +211,241 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_xd77h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene/RootNode/Pistol/MagazineSnapZone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.24594e-09, 0.0704987, 0.0175055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root Scene/RootNode/Pistol/MagazineSnapZone:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagReload:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root Scene/RootNode/Pistol/hammer:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EmptySound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MuzzleFlash:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Root Scene/RootNode/Pistol/slide:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.000184433, 0.0780441, 0.0573408)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FireSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_68ebp"]
+resource_name = "EmptyShoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene/RootNode/Pistol/hammer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.698132, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EmptySound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_aj3pk"]
+resource_name = "Shoot"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene/RootNode/Pistol/hammer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.12, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.698132, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.698132, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot_bullet"
+}, {
+"args": [],
+"method": &"_eject_and_load"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MuzzleFlash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root Scene/RootNode/Pistol/slide:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.000184433, 0.0780441, 0.0573408), Vector3(0, 0.078, -0.00485452), Vector3(0, 0.078, 0.057)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7u38"]
 _data = {
 "EjectMagazine": SubResource("Animation_cuxoh"),
+"EmptyShoot": SubResource("Animation_68ebp"),
 "LoadMagazine": SubResource("Animation_jmq3q"),
-"RESET": SubResource("Animation_xd77h")
+"RESET": SubResource("Animation_xd77h"),
+"Shoot": SubResource("Animation_aj3pk")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ilda"]
+margin = 0.01
+radius = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk1cl"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("19_i5v0v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmeqt"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("19_i5v0v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdcr4"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("19_i5v0v")
 
 [node name="Gun" groups=["HandGun"] instance=ExtResource("1_asxj1")]
 script = ExtResource("2_g5if6")
+casing_scene = ExtResource("3_skkga")
+bullet_scene = ExtResource("4_05ch4")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05176e-05, -0.00353131, 0.0115352)
@@ -255,11 +457,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0781313, -0.0663645)
 [node name="Pistol" parent="Root Scene/RootNode" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.01)
 
-[node name="magazine (loaded)" parent="Root Scene/RootNode/Pistol" index="3"]
-visible = false
-
 [node name="magazine (empty)" parent="Root Scene/RootNode/Pistol" index="4"]
 visible = false
+
+[node name="LoadedBullet" type="MeshInstance3D" parent="Root Scene/RootNode/Pistol/slide" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0.002)
+visible = false
+mesh = ExtResource("4_kyqfg")
+surface_material_override/0 = SubResource("StandardMaterial3D_x7cio")
+
+[node name="FiredBullet" type="MeshInstance3D" parent="Root Scene/RootNode/Pistol/slide" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.002, 0.002)
+visible = false
+mesh = ExtResource("5_3x0bg")
+skeleton = NodePath("../LoadedBullet")
+surface_material_override/0 = SubResource("StandardMaterial3D_qf0us")
+
+[node name="CasingSpawnPoint" type="Node3D" parent="Root Scene/RootNode/Pistol/slide" index="3"]
+transform = Transform3D(0.772955, 0.634461, 0, -0.634461, 0.772955, 0, 0, 0, 1, 0.0218193, 0.0265822, 0)
 
 [node name="MagazineSnapZone" parent="Root Scene/RootNode/Pistol" index="6" instance=ExtResource("4_wnr5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24594e-09, 0.0704987, 0.0175055)
@@ -292,11 +507,52 @@ surface_material_override/0 = ExtResource("8_0ayeu")
 stream = ExtResource("11_5svhk")
 volume_db = 50.955
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="FireSound" type="AudioStreamPlayer3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0539445, 0.127412)
+stream = ExtResource("16_pgrm3")
+volume_db = 51.792
+
+[node name="EmptySound" type="AudioStreamPlayer3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0539445, 0.127412)
+stream = ExtResource("17_72sd6")
+volume_db = 51.792
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 libraries = {
 "": SubResource("AnimationLibrary_p7u38")
 }
 
+[node name="SlideOrigin" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000184433, 0.0499128, -0.047526)
+
+[node name="SlidePickup" parent="SlideOrigin" index="0" instance=ExtResource("1_asxj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000398166)
+collision_layer = 1024
+collision_mask = 0
+can_sleep = false
+freeze = true
+freeze_mode = 0
+enabled = false
+picked_up_layer = 0
+
+[node name="CollisionShape3D" parent="SlideOrigin/SlidePickup" index="0"]
+shape = SubResource("SphereShape3D_1ilda")
+
+[node name="BulletSpawnPoint" type="Node3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0539445, 0.127412)
+
+[node name="MuzzleFlash" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 1.29237e-08, 0.0471057, 0.14783)
+visible = false
+mesh = ExtResource("18_835el")
+surface_material_override/0 = SubResource("StandardMaterial3D_hk1cl")
+surface_material_override/1 = SubResource("StandardMaterial3D_cmeqt")
+surface_material_override/2 = SubResource("StandardMaterial3D_pdcr4")
+
+[connection signal="dropped" from="." to="." method="_on_Gun_dropped"]
+[connection signal="picked_up" from="." to="." method="_on_Gun_picked_up"]
 [connection signal="has_picked_up" from="Root Scene/RootNode/Pistol/MagazineSnapZone" to="." method="_on_magazine_snap_zone_has_picked_up"]
+[connection signal="dropped" from="SlideOrigin/SlidePickup" to="." method="_on_slide_pickup_dropped"]
 
 [editable path="Root Scene"]
+[editable path="SlideOrigin/SlidePickup"]

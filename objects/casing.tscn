@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr5eoalwt4amg"]
+
+[ext_resource type="CylinderMesh" uid="uid://2bo12okag1o6" path="res://objects/empty_shell.tres" id="1_82map"]
+[ext_resource type="Script" path="res://objects/casing.gd" id="1_hvhem"]
+[ext_resource type="ArrayMesh" uid="uid://dja582b0nskyo" path="res://objects/bullet.tres" id="2_xqtme"]
+[ext_resource type="Texture2D" uid="uid://bi354f417yxxt" path="res://assets/opengameart.org/pistol/Texture/PaletteAtlas.png" id="3_4l28d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lipwg"]
+albedo_texture = ExtResource("3_4l28d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrk0o"]
+albedo_color = Color(0.790594, 0.52124, 0.345051, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egxmx"]
+margin = 0.001
+radius = 0.006
+height = 0.0259015
+
+[node name="Casing" type="RigidBody3D"]
+script = ExtResource("1_hvhem")
+
+[node name="Bullet" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_xqtme")
+surface_material_override/0 = SubResource("StandardMaterial3D_lipwg")
+
+[node name="Casing" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_82map")
+surface_material_override/0 = SubResource("StandardMaterial3D_xrk0o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.4816e-10, 0.00338951)
+shape = SubResource("CapsuleShape3D_egxmx")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
