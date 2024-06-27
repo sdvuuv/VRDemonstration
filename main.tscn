@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c806ini8v6yxa"]
+[gd_scene load_steps=27 format=3 uid="uid://c806ini8v6yxa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_botke"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_xa2m1"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://db0n7ds45qgfj" path="res://cube.tscn" id="9_j4vrp"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="9_m1ui6"]
 [ext_resource type="PackedScene" uid="uid://01h70nm5fyn4" path="res://objects/axe.tscn" id="10_hmhtm"]
+[ext_resource type="PackedScene" uid="uid://b7rpo4sxwqpl3" path="res://objects/belt_snap_zone.tscn" id="10_j1o5k"]
 [ext_resource type="PackedScene" uid="uid://butaachpo5k36" path="res://objects/tool_board.tscn" id="11_twwcb"]
 [ext_resource type="PackedScene" uid="uid://x4wxv5768d3i" path="res://objects/gun.tscn" id="12_e0waf"]
+[ext_resource type="PackedScene" uid="uid://lnlhk2h38phi" path="res://objects/magazine.tscn" id="14_83sgp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rmd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -104,6 +106,12 @@ jump_button_action = "ax_button"
 physics = SubResource("Resource_v73np")
 ground_control = 2
 
+[node name="BeltSnapZone" parent="XROrigin3D/PlayerBody" instance=ExtResource("10_j1o5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, -0.3)
+
+[node name="BeltSnapZone2" parent="XROrigin3D/PlayerBody" instance=ExtResource("10_j1o5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, -0.3)
+
 [node name="Floor" type="StaticBody3D" parent="."]
 disable_mode = 1
 
@@ -132,6 +140,18 @@ transform = Transform3D(0.952895, 4.41534e-09, -0.303301, -4.62374e-09, 1, 3.105
 
 [node name="Gun" parent="Table" instance=ExtResource("12_e0waf")]
 transform = Transform3D(-3.05565e-08, -3.95813e-09, 1, -1, -3.10221e-08, -3.05565e-08, 3.10221e-08, -1, -3.95812e-09, 0.251264, 0.54427, 0.231235)
+
+[node name="Magazine" parent="Table" instance=ExtResource("14_83sgp")]
+transform = Transform3D(-0.0093897, -3.9783e-09, 0.999956, -0.999956, -3.08821e-08, -0.00938969, 3.09181e-08, -1, -3.68815e-09, 0.0958923, 0.526879, 0.207975)
+
+[node name="Magazine2" parent="Table" instance=ExtResource("14_83sgp")]
+transform = Transform3D(-0.0093897, -3.9783e-09, 0.999956, -0.999956, -3.08821e-08, -0.00938969, 3.09181e-08, -1, -3.68815e-09, 0.0330004, 0.526879, 0.207975)
+
+[node name="Magazine3" parent="Table" instance=ExtResource("14_83sgp")]
+transform = Transform3D(-0.0093897, -3.9783e-09, 0.999956, -0.999956, -3.08821e-08, -0.00938969, 3.09181e-08, -1, -3.68815e-09, -0.0299574, 0.526879, 0.207975)
+
+[node name="Magazine4" parent="Table" instance=ExtResource("14_83sgp")]
+transform = Transform3D(-0.0093897, -3.9783e-09, 0.999956, -0.999956, -3.08821e-08, -0.00938969, 3.09181e-08, -1, -3.68815e-09, -0.0987348, 0.526879, 0.207975)
 
 [node name="Cube" parent="." instance=ExtResource("9_j4vrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00492859, 1.04128, -0.795475)
