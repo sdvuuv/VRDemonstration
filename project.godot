@@ -25,6 +25,14 @@ XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[layer_names]
+
+3d_physics/layer_1="static world"
+3d_physics/layer_2="dynamic world"
+3d_physics/layer_3="object"
+3d_physics/layer_17="held object"
+3d_physics/layer_20="player body"
+
 [rendering]
 
 gl_compatibility/driver.windows="opengl3_angle"

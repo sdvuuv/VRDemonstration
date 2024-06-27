@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://butaachpo5k36"]
+
+[ext_resource type="PackedScene" uid="uid://ck87g8gkypk62" path="res://objects/axe_snap_zone.tscn" id="1_6a4rw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_whyi4"]
+size = Vector3(0.5, 0.75, 0.01)
+
+[node name="ToolBoard" type="Node3D"]
+
+[node name="Board" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+mesh = SubResource("BoxMesh_whyi4")
+
+[node name="AxeSnapZone" parent="." instance=ExtResource("1_6a4rw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.6, 0.04)
