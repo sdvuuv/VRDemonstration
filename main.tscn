@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=117 format=3 uid="uid://c806ini8v6yxa"]
+
 
 [ext_resource type="Script" path="res://main.gd" id="1_botke"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_xa2m1"]
@@ -10,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="7_datg1"]
 [ext_resource type="PackedScene" uid="uid://db0n7ds45qgfj" path="res://cube.tscn" id="9_j4vrp"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="9_m1ui6"]
+
 [ext_resource type="PackedScene" uid="uid://b7rpo4sxwqpl3" path="res://objects/belt_snap_zone.tscn" id="10_4kabe"]
 [ext_resource type="Texture2D" path="res://textures/patterned_brick_floor_03_diff_4k.jpg" id="10_rne8f"]
 [ext_resource type="Texture2D" path="res://textures/coast_sand_rocks_02_diff_4k.jpg" id="11_0av16"]
@@ -24,6 +27,7 @@
 [ext_resource type="Texture2D" path="res://textures/gravel_floor_02_diff_4k.jpg" id="17_b00pb"]
 [ext_resource type="Texture2D" path="res://textures/brown_mud_leaves_01_diff_4k.jpg" id="18_dhvrn"]
 [ext_resource type="Texture2D" path="res://textures/target.png" id="19_m6rqj"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rmd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -253,9 +257,11 @@ uv1_scale = Vector3(0.1, 0.1, 0.1)
 albedo_texture = ExtResource("17_b00pb")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mju1m"]
 albedo_texture = ExtResource("17_b00pb")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qf55"]
 albedo_texture = ExtResource("18_dhvrn")
@@ -328,6 +334,7 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f57kd"]
 size = Vector3(2, 5, 1)
 
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms2ta"]
 albedo_texture = ExtResource("19_m6rqj")
 uv1_scale = Vector3(2, 2, 2)
@@ -337,6 +344,7 @@ height = 0.001
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_t70q3"]
 height = 0.002
+
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_botke")
@@ -396,6 +404,7 @@ jump_button_action = "ax_button"
 physics = SubResource("Resource_v73np")
 ground_control = 2
 
+
 [node name="BeltSnapZone" parent="XROrigin3D/PlayerBody" instance=ExtResource("10_4kabe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.9, -0.206)
 
@@ -409,9 +418,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818168, 0.440753, -0.09258
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 11.5, -12)
 shape = SubResource("BoxShape3D_0w6g1")
 
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1/CollisionShape3D"]
 material_overlay = SubResource("StandardMaterial3D_kwtnd")
 mesh = SubResource("BoxMesh_411rn")
+
+[node name="Wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818168, 0.440753, -0.0925865)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 11.5, -12)
+shape = SubResource("BoxShape3D_0w6g1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1/CollisionShape3D"]
+material_overlay = SubResource("StandardMaterial3D_kwtnd")
+mesh = SubResource("BoxMesh_411rn")
+
 
 [node name="Floor" type="StaticBody3D" parent="."]
 disable_mode = 1
@@ -426,8 +448,10 @@ material_override = SubResource("StandardMaterial3D_tpvyt")
 mesh = SubResource("BoxMesh_dfgmp")
 
 [node name="Table" type="MeshInstance3D" parent="."]
+
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0807203, 0.476819, -0.820377)
 material_override = SubResource("StandardMaterial3D_2ha2p")
+
 mesh = SubResource("BoxMesh_oyjxf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Table"]
@@ -936,6 +960,7 @@ material_override = SubResource("StandardMaterial3D_bgl2o")
 mesh = SubResource("BoxMesh_j0wtw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D34"]
+
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D34/StaticBody3D"]
 shape = SubResource("BoxShape3D_mh7x1")
@@ -1613,3 +1638,4 @@ autostart = true
 
 [connection signal="timeout" from="TargetExpireTimer" to="." method="_on_target_expire_timer_timeout"]
 [connection signal="timeout" from="TimeTimer" to="." method="_on_time_timer_timeout"]
+
