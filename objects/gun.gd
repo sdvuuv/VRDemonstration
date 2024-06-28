@@ -94,6 +94,7 @@ func _process(_delta):
 			$AnimationPlayer.play("EjectMagazine")
 
 	if slide_pickup.is_picked_up():
+		print("picked")
 		var slide_pickup_pos = slide_pickup.global_transform.origin
 		var slide_pickup_local = slide_pickup_pos * slide_origin.global_transform
 		
@@ -119,6 +120,8 @@ func _process(_delta):
 			slide_pickup.drop()
 func _on_Gun_picked_up(pickable):
 	slide_pickup.enabled = true
+	if slide_pickup.enabled:
+		print("ready to pick")
 	slide_pickup.collision_layer = slide_layer
 	
 

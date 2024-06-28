@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqulxkfyeslft"]
 
-[ext_resource type="Script" path="res://Bullet.gd" id="1_f82jv"]
+[ext_resource type="Script" path="res://objects/bullet.gd" id="1_43gsn"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_uvkil"]
 radius = 0.006
@@ -13,12 +13,18 @@ margin = 0.01
 radius = 0.01
 
 [node name="Bullet" type="RigidBody3D"]
-script = ExtResource("1_f82jv")
+collision_layer = 2048
+collision_mask = 2048
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_43gsn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_uvkil")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionBullet" type="CollisionShape3D" parent="."]
+editor_description = "ayay"
 shape = SubResource("SphereShape3D_efpsy")
 
 [node name="LifetimeTimer" type="Timer" parent="."]
@@ -26,4 +32,5 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
